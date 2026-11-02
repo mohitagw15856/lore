@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://t.me/lore_bot?startgroup=true"><img src="https://img.shields.io/badge/Add%20to%20Telegram-one%20tap-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Add Lore to a Telegram group" height="32"></a>
+  <a href="https://t.me/Lore_mohitagw_bot?startgroup=true"><img src="https://img.shields.io/badge/Add%20to%20Telegram-one%20tap-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Add Lore to a Telegram group" height="32"></a>
   &nbsp;
   <a href="https://lore.pm-claude-skills.workers.dev"><img src="https://img.shields.io/badge/live%20on-Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Live on Cloudflare Workers" height="32"></a>
 </p>
@@ -39,7 +39,7 @@
 
 <img src="docs/banners/install.svg" alt="Install in one tap" width="100%">
 
-Using the hosted bot: open **[t.me/lore_bot?startgroup=true](https://t.me/lore_bot?startgroup=true)**, pick a group, done.
+Using the hosted bot: open **[t.me/Lore_mohitagw_bot?startgroup=true](https://t.me/Lore_mohitagw_bot?startgroup=true)**, pick a group, done.
 
 Lore starts counting from that second. Never earlier. The first quiz posts the next morning at 9:00 (change it with `/settime 21`, set your offset with `/timezone +5:30`).
 
