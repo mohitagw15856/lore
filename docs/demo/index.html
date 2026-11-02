@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lore demo</title>
+<style>
+:root{--bg:#0e1621;--bub:#182533;--mine:#2b5278;--fg:#e9eef3;--muted:#8a9bb0;--accent:#5eb5f7;--ok:#4cd964}
+*{box-sizing:border-box}body{margin:0;background:#070b10;color:var(--fg);font:15px/1.4 -apple-system,Inter,Segoe UI,sans-serif;display:flex;gap:24px;align-items:center;justify-content:center;min-height:100vh;padding:16px}
+.side{width:440px;height:min(820px,calc(100vh - 32px));border:0;border-radius:28px;background:#0b0b12}
+@media (max-width:900px){.side{display:none}}
+.phone{width:400px;height:min(820px,calc(100vh - 32px));flex:none;background:var(--bg);border-radius:36px;border:8px solid #1b2430;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+.top{padding:14px 16px;background:#17212b;display:flex;align-items:center;gap:12px;border-bottom:1px solid #0b0f14}
+.av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ff7a59,#7c5cff);display:grid;place-items:center;font-weight:800;color:#fff}
+.top b{display:block}.top small{color:var(--muted)}
+.feed{flex:1;overflow:hidden;padding:12px;display:flex;flex-direction:column;gap:8px;justify-content:flex-end}
+.m{max-width:86%;padding:8px 12px;border-radius:14px;background:var(--bub);animation:pop .35s cubic-bezier(.2,.9,.3,1.3) both;position:relative}
+.m.me{align-self:flex-end;background:var(--mine)}
+.m .n{font-size:12.5px;font-weight:700;margin-bottom:2px}
+.m .t{font-size:11px;color:var(--muted);text-align:right;margin-top:2px}
+.sys{align-self:center;background:#0b0f1480;color:var(--muted);font-size:12px;padding:4px 10px;border-radius:999px;animation:pop .3s both}
+.lore .n{color:#ff9e7a}
+.poll .q{font-weight:700;margin-bottom:8px}.poll .quote{font-style:italic;color:#cfd8e3;margin-bottom:10px}
+.opt{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid #2a3a4c;border-radius:10px;margin:6px 0;font-size:14px;transition:all .3s}
+.opt i{width:16px;height:16px;border:2px solid #4a5d72;border-radius:50%;display:inline-block}
+.opt.picked{border-color:var(--accent);background:#1b2f44}.opt.picked i{border-color:var(--accent);background:var(--accent)}
+.opt.right{border-color:var(--ok);background:#163d2a}.opt.right i{border-color:var(--ok);background:var(--ok)}
+.opt .bar{margin-left:auto;color:var(--muted);font-size:12px}
+.receipt{font-size:14px;line-height:1.55}
+.capsule{border-left:3px solid #f5c542;padding-left:10px}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+.typing{align-self:flex-start;color:var(--muted);font-size:12px;padding:2px 8px;animation:pop .2s both}
+.bottom{padding:10px 12px;background:#17212b;display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px}
+.bottom span{flex:1;background:#242f3d;border-radius:18px;padding:9px 14px}
+.replay{position:fixed;bottom:16px;right:16px;background:#fff;color:#111;border:0;border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer}
+</style></head><body>
+<div class="phone">
+  <div class="top"><div class="av">U</div><div><b>The Usual Suspects</b><small>7 members, 4 online</small></div></div>
+  <div class="feed" id="feed"></div>
+  <div class="bottom">📎 <span>Message</span> 🎤</div>
+</div>
+<iframe class="side" src="receipts.html" title="Receipts card"></iframe>
+<iframe class="side" src="me.html" title="Member card"></iframe>
+<button class="replay" onclick="play()">↻ Replay</button>
+<script>
+const feed=document.getElementById('feed');
+const T=()=>{const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0')};
+const el=(html,cls='')=>{const d=document.createElement('div');d.className=cls;d.innerHTML=html;feed.appendChild(d);while(feed.scrollHeight>feed.clientHeight&&feed.children.length>1)feed.removeChild(feed.firstChild);return d};
+const msg=(n,t,me=false,extra='')=>el(`<div class="n">${n}</div>${t}<div class="t">${T()}</div>`,'m'+(me?' me':'')+extra);
+const lore=(t,extra='')=>msg('Lore ✨',t,false,' lore'+extra);
+const sys=t=>el(t,'sys');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+let run=0;
+async function play(){
+  const my=++run; feed.innerHTML='';
+  const step=async(ms,fn)=>{await sleep(ms);if(my!==run)throw 0;fn()};
+  try{
+  await step(300,()=>sys('Mo added Lore to the group'));
+  await step(900,()=>lore(`👋 Hi! From now on this group writes its own game.<br><br>Every morning I'll post a real quote from this chat and ask <b>who said it</b>. I only count from today. <b>/privacy</b> has the details.`));
+  await step(1300,()=>msg('Priya','nobody tell Sam about the thing we did last weekend 💀💀'));
+  await step(900,()=>msg('Aman','I will never recover from that movie ending, truly broken 🫠'));
+  await step(900,()=>msg('Mo','honestly the best pizza in town is the one near the station 🍕',true));
+  await step(900,()=>msg('Sam','ok but why does everyone keep ghosting the planning thread'));
+  await step(1100,()=>sys('the next morning, 9:00'));
+  let poll;
+  await step(700,()=>{poll=lore(`<div class="poll"><div class="q">🧠 Who said it?</div><div class="quote">“nobody tell Sam about the thing we did last weekend 💀💀”</div>
+    <div class="opt" data-i="0"><i></i>Mo</div><div class="opt" data-i="1"><i></i>Priya</div><div class="opt" data-i="2"><i></i>Aman</div><div class="opt" data-i="3"><i></i>Sam</div></div>`)});
+  await step(1400,()=>poll.querySelector('[data-i="3"]').classList.add('picked'));
+  await step(700,()=>{const o=poll.querySelectorAll('.opt');o[3].classList.remove('picked');o[1].classList.add('right');o[1].insertAdjacentHTML('beforeend','<span class="bar">✅ 5 · 71%</span>');o[3].insertAdjacentHTML('beforeend','<span class="bar">2 · 29%</span>')});
+  await step(800,()=>lore('🏆 <b>Priya</b> said it. Sam, you were there.<br>🔥 Priya is on a 4-day streak. /leaderboard'));
+  await step(1500,()=>sys('Monday, 9:00'));
+  await step(600,()=>lore(`<div class="receipt">🧾 <b>Receipts</b> · this week<br>💬 1,283 messages<br>🗣 Chattiest: <b>Priya</b> (412)<br>⚡ Fastest replier: <b>Aman</b> (48s)<br>👻 Ghost: <b>Sam</b> (2d 4h to reply)<br>🦉 Night owl: <b>Mo</b> (31 after midnight)<br>💀 Emoji of the week (×38)<br>🖼 Shareable card ↗</div>`));
+  await step(1600,()=>sys('1 January'));
+  await step(600,()=>lore(`<div class="capsule">⏳ <b>A time capsule just opened.</b><br>Sealed by <b>Mo</b> on 2026-11-02:<br><br>If you are reading this, we survived 2026. Pizza on me. 🍕</div>`));
+  await step(900,()=>msg('Sam','I hate how much I love this bot'));
+  }catch(e){}
+}
+play();
+</script></body></html>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Lore — your group chat writes its own game">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ff7a59"><animate attributeName="stop-color" values="#ff7a59;#7c5cff;#2dd4bf;#ff7a59" dur="9s" repeatCount="indefinite"/></stop>
+    <stop offset="1" stop-color="#7c5cff"><animate attributeName="stop-color" values="#7c5cff;#2dd4bf;#ff7a59;#7c5cff" dur="9s" repeatCount="indefinite"/></stop>
+  </linearGradient>
+  <clipPath id="c"><rect width="1200" height="360" rx="28"/></clipPath>
+  <style>
+    .t{font:800 72px -apple-system,Inter,Segoe UI,Helvetica,Arial,sans-serif;fill:#fff;letter-spacing:-2px}
+    .s{font:500 26px -apple-system,Inter,Segoe UI,Helvetica,Arial,sans-serif;fill:#fff;opacity:.92}
+    .bub{font:600 20px -apple-system,Inter,Segoe UI,Helvetica,Arial,sans-serif;fill:#0b0b12}
+    .pill{opacity:0;animation:rise .6s ease forwards}
+    .p1{animation-delay:.4s}.p2{animation-delay:1.3s}.p3{animation-delay:2.2s}.p4{animation-delay:3.4s}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    .cur{animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+    .float{animation:fl 4s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-8px)}}
+  </style>
+</defs>
+<g clip-path="url(#c)">
+  <rect width="1200" height="360" fill="#0b0b12"/>
+  <rect width="1200" height="360" fill="url(#g)" opacity=".92"/>
+  <circle cx="1050" cy="60" r="220" fill="#fff" opacity=".06"/>
+  <circle cx="120" cy="330" r="160" fill="#000" opacity=".12"/>
+  <text x="70" y="140" class="t">Lore ✨</text>
+  <text x="70" y="190" class="s">Your group chat writes its own game.</text>
+  <text x="70" y="228" class="s" opacity=".8">No AI · no API keys · one tap to install · deletes itself in 30 days</text>
+  <g class="float">
+    <g class="pill p1"><rect x="700" y="60" width="430" height="44" rx="22" fill="#fff"/><text x="722" y="89" class="bub">🧠 Who said it? “nobody tell Sam…”</text></g>
+    <g class="pill p2"><rect x="760" y="118" width="370" height="44" rx="22" fill="#fff"/><text x="782" y="147" class="bub">✅ Priya · 🔥 4-day streak</text></g>
+    <g class="pill p3"><rect x="700" y="176" width="430" height="44" rx="22" fill="#fff"/><text x="722" y="205" class="bub">🧾 Receipts · 👻 Ghost: Sam (2d 4h)</text></g>
+    <g class="pill p4"><rect x="760" y="234" width="370" height="44" rx="22" fill="#fff"/><text x="782" y="263" class="bub">⏳ A time capsule just opened</text></g>
+  </g>
+  <text x="70" y="300" class="s" opacity=".9">t.me/lore_bot?startgroup=true<tspan class="cur">▍</tspan></text>
+</g>
+</svg>

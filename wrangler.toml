@@ -1,0 +1,24 @@
+name = "lore"
+main = "src/index.ts"
+compatibility_date = "2025-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Hourly tick: posts the daily quiz at each group's chosen hour,
+# weekly Receipts on Mondays, Wrapped on 31 Dec, opens due capsules,
+# and purges raw messages older than 30 days.
+[triggers]
+crons = ["0 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lore"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+# Your bot's username without the @ (from @BotFather)
+BOT_NAME = "lore_bot"
+
+# Secrets (set with `wrangler secret put <NAME>` or in the dashboard):
+#   BOT_TOKEN       - from @BotFather
+#   WEBHOOK_SECRET  - any long random string; also unlocks /setup

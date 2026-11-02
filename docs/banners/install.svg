@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="90" viewBox="0 0 1200 90" role="img" aria-label="Install">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#5e3cff"/></linearGradient>
+<style>.h{font:800 34px -apple-system,Inter,Segoe UI,Helvetica,Arial,sans-serif;fill:#fff}.sh{animation:sh 3s linear infinite}@keyframes sh{to{transform:translateX(1200px)}}</style></defs>
+<rect width="1200" height="90" rx="20" fill="url(#g)"/>
+<rect class="sh" x="-300" y="0" width="200" height="90" fill="#fff" opacity=".12" transform="skewX(-20)"/>
+<text x="40" y="58" class="h">⚡  Install in one tap</text>
+</svg>
