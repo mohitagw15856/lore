@@ -3,8 +3,12 @@
 </p>
 
 <p align="center">
-  <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/mohitagw15856/lore"><img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" height="32"></a>
+  <a href="https://t.me/lore_bot?startgroup=true"><img src="https://img.shields.io/badge/Add%20to%20Telegram-one%20tap-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Add Lore to a Telegram group" height="32"></a>
   &nbsp;
+  <a href="https://lore.pm-claude-skills.workers.dev"><img src="https://img.shields.io/badge/live%20on-Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Live on Cloudflare Workers" height="32"></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/AI%20calls-0-black?style=for-the-badge" alt="zero AI">
   <img src="https://img.shields.io/badge/API%20keys%20needed-0-black?style=for-the-badge" alt="zero API keys">
   <img src="https://img.shields.io/badge/raw%20text%20kept-30%20days-black?style=for-the-badge" alt="30 day retention">
@@ -39,7 +43,7 @@ Using the hosted bot: open **[t.me/lore_bot?startgroup=true](https://t.me/lore_b
 
 Lore starts counting from that second. Never earlier. The first quiz posts the next morning at 9:00 (change it with `/settime 21`, set your offset with `/timezone +5:30`).
 
-> Hosted bot not live yet? Deploy your own below. It takes about three minutes.
+> Prefer your own instance? Deploy one below. It takes about three minutes.
 
 <img src="docs/banners/privacy.svg" alt="Privacy, plainly" width="100%">
 
@@ -71,9 +75,11 @@ This is the whole trust story, so it's the headline, not the footnote.
 
 <img src="docs/banners/deploy.svg" alt="Deploy your own" width="100%">
 
+The hosted bot above is already running on Cloudflare. You only need this section if you want your own copy, for example to rename it or keep the data on your own account.
+
 Lore is a single Cloudflare Worker with a D1 database and an hourly cron. It fits comfortably in the free tier for thousands of groups.
 
-**Option A: the button.**
+**Option A: the button.** [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mohitagw15856/lore)
 
 1. Talk to [@BotFather](https://t.me/BotFather): `/newbot`, copy the token. Then `/setprivacy` → **Disable** (so the bot can see group messages).
 2. Click [Deploy to Cloudflare](https://deploy.workers.cloudflare.com/?url=https://github.com/mohitagw15856/lore). It creates the Worker and the D1 database.
