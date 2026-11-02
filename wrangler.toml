@@ -12,7 +12,7 @@ crons = ["0 * * * *"]
 [[d1_databases]]
 binding = "DB"
 database_name = "lore"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "6802e29e-e3f5-4270-b0ba-437e0e6826f7"
 migrations_dir = "migrations"
 
 [vars]
